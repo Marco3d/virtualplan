@@ -1,0 +1,6 @@
+git status
+git add .
+git commit -m "mensaje" 
+git commit --amend -m "para cambiar el mensaje"
+git push -u origin master 
+
