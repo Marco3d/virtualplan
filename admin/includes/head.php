@@ -3,7 +3,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>ADMIN SISTEMA DE NOTAS</title>
+    <title>ADMIN PLAN DE ESTUDIOS</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.css" rel="stylesheet">
