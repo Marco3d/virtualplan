@@ -52,7 +52,7 @@
 		<div class="container">
 
       <form class="form-signin" action="login.php" method="post" name="login">
-        <h2 class="form-signin-heading"><div id="titulo">ADMIN SISTEMA DE NOTAS</div></h2>
+        <h2 class="form-signin-heading"><div id="titulo">ADMIN PLAN DE ESTUDIOS</div></h2>
       
         <input type="text" class="input-block-level"  name="usuario" id="usuario" value="Usuario"  autofocus>
         <input type="password" class="input-block-level" name="password"  id="password" value="password">
@@ -88,7 +88,7 @@
          
           <hr>
         <div class="alert alert-info">
-             &copy; Sistema de Notas v1.0. Desarrollado por <strong>@ulaRED</strong>
+             &copy; Virtual Plan  v1.0. Desarrollado por <strong>@ulaRED</strong>
           </div>
          </label>
       </form>
