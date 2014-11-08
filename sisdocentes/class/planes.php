@@ -83,7 +83,7 @@ class Planes extends Principal {
             $result = mysql_query($consulta);
             //echo mysql_query($consulta);exit;
 
-            header("Location: crearplan.php?mensaje=5");
+            header("Location: crearplan.php");
         } else {
             header("Location: crearplan.php?mensaje=4");
         }

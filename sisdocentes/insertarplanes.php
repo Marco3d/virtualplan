@@ -55,7 +55,7 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
 
                                         <div class="form-group">
                                             <label>Asignatura</label>
-                                            <select name="asignatura">
+                                            <select name="asignatura" >
                                                 <option value="MATEMATICAS">MATEMATICAS</option>
                                                 <option value="ESPAÑOL">ESPAÑOL</option>
                                                 <option value="BIOLOGIA">BIOLOGIA</option>

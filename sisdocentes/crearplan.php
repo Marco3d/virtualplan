@@ -55,6 +55,9 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                                         <tbody>
                                             <!-- hacemos un recorrido por todos los datos mediante un ciclo -->
                                             <?php foreach ($datos2 as $key) { ?>
+                                                <?php if ($key["nombre_docentes"]== $_SESSION["nombre_docentes"]) {
+                                                    # code...
+                                                 ?>
                                                 <tr>
                                                     <td class="center"><?php echo $key["idplanes"]; ?></td> 
                                                     <td class="center"><?php echo $key["nombre_plan"]; ?></td>
@@ -72,6 +75,7 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                                                     </td>
                                                 </tr>
                                                 <!-- Cerramos el primer registro y regresamos hasta terminarlos todos -->
+                                            <?php } ?>
                                             <?php } ?>
 
                                         </tbody>
