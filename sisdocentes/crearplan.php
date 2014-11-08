@@ -2,8 +2,13 @@
 require_once 'class/planes.php';
 if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
 
+    $planes = new Planes();
+    $datos = $planes->getplanes();
+    
     $planes_docentes = new Planes();
-    $datos = $planes_docentes->getplanes_docentes();
+    $datos2 = $planes_docentes->getplanes_docentes();
+    
+    
     //echo "<pre>";print_r($datos);exit;
     ?>
    
@@ -25,14 +30,14 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                     <div class="container">
 
 
-
+<div> <?php include 'includes/mensajes.php' ?></div>
 
                         <div class="widget widget-table action-table">
                             <div class="widget-header"> <i class="icon-th-list"></i>
                                 <h3>Crear Plan de Estudios</h3>
-                                <div> <?php include 'includes/mensajes.php' ?></div>
+                                
                             </div>
-                            <?php if (sizeof($datos) > 0) { ?>
+                            <?php if (sizeof($datos2) > 0) { ?>
                                 <!-- /widget-header -->
                                 <div class="widget-content">
                                     <table class="table table-striped table-bordered">
@@ -40,19 +45,23 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                                             <tr>
                                                 <th>id</th>
                                                 <th>Nombre del Plan</th>
+                                                <th>Asignatura</th>
                                                 <th>Grado</th>
                                                 <th>Docente</th>
-                                                <th>Acciones </th>
+                                                <th>Acciones</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <!-- hacemos un recorrido por todos los datos mediante un ciclo -->
-                                            <?php foreach ($datos as $key) { ?>
+                                            <?php foreach ($datos2 as $key) { ?>
                                                 <tr>
                                                     <td class="center"><?php echo $key["idplanes"]; ?></td> 
-                                                    <td class="center"><?php echo $key["nombre_plan"]; ?></td> 
-                                                    <td class="center"><?php echo $key["asignatura"]; ?></td> 
+                                                    <td class="center"><?php echo $key["nombre_plan"]; ?></td>
+                                                    <td class="center"><?php echo $key["asignatura"]; ?></td>
+                                                    <td class="center"><?php echo $key["grado"]; ?></td>
                                                     <td class="center"><?php echo $key["nombre_docentes"]; ?></td> 
+                                                    
                                                     <td class="center">
 
                                                         <a class="btn btn-info" href="modificarplanes.php?id=<?php echo $key['idplanes']; ?>">

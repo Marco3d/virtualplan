@@ -17,7 +17,7 @@ class Planes extends Principal {
     public function getplanes() {
         parent::Conectar();
         $consulta = sprintf(
-                "select idplanes, nombre_plan, asignatura, grado, iddocente  from planes order by idplanes asc;"
+                "select idplanes, nombre_plan, asignatura, grado, iddocentes FROM planes order by idplanes asc;"
         );
         $result = mysql_query($consulta);
 
@@ -31,11 +31,11 @@ class Planes extends Principal {
     public function getplanes_docentes() {
         parent::Conectar();
         $consulta = sprintf(
-                "select p.idplanes, p.nombre_plan,
+                "select                                  p.idplanes,p.nombre_plan,
 							 p.asignatura,p.grado,
 							 p.iddocentes,
                                                          d.iddocentes,d.nombre_docentes
-							 from
+							 FROM
 							 planes as p,
 							 docentes as d
 							 where
@@ -78,8 +78,10 @@ class Planes extends Principal {
                     parent::comillas_inteligentes($_POST["asignatura"]),
                     parent::comillas_inteligentes($_POST["grado"]),
                     parent::comillas_inteligentes($_POST["iddocentes"])
+                    
             );
             $result = mysql_query($consulta);
+            //echo mysql_query($consulta);exit;
 
             header("Location: crearplan.php?mensaje=5");
         } else {

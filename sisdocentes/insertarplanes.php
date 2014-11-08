@@ -2,10 +2,14 @@
 require_once 'class/planes.php';
 if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
 
+    $planes = new Planes();
+    $datos = $planes->getplanes();
+
     $planes_docentes = new Planes();
-    $datos = $planes_docentes->getplanes_docentes();
+    $datos2 = $planes_docentes->getplanes_docentes();
+    //echo "<pre>";print_r($datos);exit;
     if (isset($_POST["enviado"]) and $_POST["enviado"] == "true") {
-        $planes_docentes->add_planes();
+        $planes->add_planes();
     }
     ?>
 
@@ -55,11 +59,10 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                                                 <option value="MATEMATICAS">MATEMATICAS</option>
                                                 <option value="ESPAÑOL">ESPAÑOL</option>
                                                 <option value="BIOLOGIA">BIOLOGIA</option>
-                                                <option value="SELECCIONAR" selected>Seleccionar..</option>
+                                                <option value="SELECCIONAR" selected>Seleccionar</option>
                                             </select>
 
                                         </div> 
-
 
                                         <div class="form-group">
                                             <label>Grado</label>
@@ -68,34 +71,35 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                                                 <option value="601JT">601JT</option>
                                                 <option value="701JM">701JM</option>
                                                 <option value="701JT">701JT</option>
-                                                <option value="audi" selected>Seleccionar..</option>
+                                                <option value="Seleccionar" selected>Seleccionar</option>
                                             </select>
 
 
                                         </div> 
 
-
                                         <div class="form-group">
-                                            <label>Docente</label>
-                                            <input class="form-control" name="iddocentes" value="<?php echo $_SESSION["nombre_docentes"] ?>  "  required autofocus />
+                                            <div class="form-group">
+                                                 <label>Docente</label>
+                                                <select name="iddocentes">
+                                                    <option value="0">Seleccione...</option>
+                                                    
+                                                        <option value="<?php echo $_SESSION["iddocentes"] ?>"><?php echo $_SESSION["nombre_docentes"] ?></option>
+
+                                                        
+                                                </select>
+                                            </div> 
+
                                         </div> 
-
-
-                                        <div>
-                                            <input type="hidden" name="enviado" value="true">
-                                            <input type="submit" <button class="btn btn-success" type="button" name="grabar" value="Grabar" title="Grabar">
-                                        </div>
-                                    </form>
+                                </div> 
 
 
 
 
-
-                                    </form>
-
-                                </div><!-- fin row -->          
-
-                            </div><!-- fin row -->
+                                <div>
+                                    <input type="hidden" name="enviado" value="true">
+                                    <input type="submit" <button class="btn btn-success" type="button" name="grabar" value="Grabar" title="Grabar">
+                                </div>
+                                </form>
 
 
 
@@ -103,7 +107,17 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
 
 
 
-                        </div><!-- /#page-wrapper -->
+                            </div><!-- fin row -->          
+
+                        </div><!-- fin row -->
+
+
+
+
+
+
+
+                    </div><!-- /#page-wrapper -->
 
 
 
@@ -114,15 +128,15 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
 
 
 
-                    </div> <!-- /container -->    
-                </div> <!-- /main-inner -->      
-            </div> <!-- /main -->
+                </div> <!-- /container -->    
+            </div> <!-- /main-inner -->      
+        </div> <!-- /main -->
 
-            <br>
+        <br>
 
-            <?php include 'includes/footer.php' ?>
+        <?php include 'includes/footer.php' ?>
 
-        </body>
+    </body>
     </html>
     <?php
 } else {
