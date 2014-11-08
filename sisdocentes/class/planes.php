@@ -64,7 +64,7 @@ class Planes extends Principal {
                       parent::comillas_inteligentes($_POST["nombre_plan"])
         );
         $result = mysql_query($consulta);
-        
+       
         //echo mysql_num_rows($result);exit;
 
         if (mysql_num_rows($result) == 0) {

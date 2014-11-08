@@ -45,28 +45,17 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                                     <form role="form" action="" name="" method="post" id="contact-form" enctype="multipart/form-data">
 
                                         <div class="form-group">
-                                            <label>Nombre plan de estudios</label>
+                                            <label>Nombre de la Asignatura</label>
                                             <input class="form-control" name="nombre_plan" title="Ingrese el nombre del plan de estudios  "  required autofocus />
                                         </div> 
 
                                         <div class="form-group">
                                             <label>Asignatura</label>
                                             <select name="asignatura">
-                                                <option label="Selecciona.." value="1000" selected></option>
-                                                <?php
-//get info from database
-                                                $result = mysql_query("select asignatura from planes ");
-                                                if (!$result) {
-                                                    echo("<p>Error performing query:" . mysql_error() . "<p>");
-                                                    exit();
-                                                }
-
-//put data in menu
-                                                while ($row = mysql_fetch_array($result)) {
-                                                    $my_column = $row["asignatura"];
-                                                    echo("<option name='$my_column' value='$my_column'>$my_column</option>");
-                                                }
-                                                ?>
+                                                <option value="MATEMATICAS">MATEMATICAS</option>
+                                                <option value="ESPAÑOL">ESPAÑOL</option>
+                                                <option value="BIOLOGIA">BIOLOGIA</option>
+                                                <option value="SELECCIONAR" selected>Seleccionar..</option>
                                             </select>
 
                                         </div> 
@@ -75,26 +64,17 @@ if (isset($_SESSION["iddocentes"]) and isset($_SESSION["usudocente"])) {
                                         <div class="form-group">
                                             <label>Grado</label>
                                             <select name="grado">
-                                                <option label="Selecciona.." value="1000" selected></option>
-                                                <?php
-//get info from database
-                                                $result = mysql_query("select grado from planes ");
-                                                if (!$result) {
-                                                    echo("<p>Error performing query:" . mysql_error() . "<p>");
-                                                    exit();
-                                                }
-
-//put data in menu
-                                                while ($row = mysql_fetch_array($result)) {
-                                                    $my_column = $row["grado"];
-                                                    echo("<option name='$my_column' value='$my_column'>$my_column</option>");
-                                                }
-                                                ?>
+                                                <option value="601JM">601JM</option>
+                                                <option value="601JT">601JT</option>
+                                                <option value="701JM">701JM</option>
+                                                <option value="701JT">701JT</option>
+                                                <option value="audi" selected>Seleccionar..</option>
                                             </select>
 
+
                                         </div> 
-                                        
-                                        
+
+
                                         <div class="form-group">
                                             <label>Docente</label>
                                             <input class="form-control" name="iddocentes" value="<?php echo $_SESSION["nombre_docentes"] ?>  "  required autofocus />
